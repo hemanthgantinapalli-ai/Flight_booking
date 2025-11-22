@@ -1,0 +1,198 @@
+/* === Global Variables & Reset === */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+    --primary-blue: #0077b6;      /* Deep Blue for Trust */
+    --accent-cyan: #00b4d8;       /* Lighter Cyan Accent */
+    --bg-light: #f4f6f8;          /* Very light gray background */
+    --text-dark: #333;
+    --text-light: #666;
+    --smooth-transition: all 0.3s ease-out;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.hidden { display: none !important; }
+
+/* === Header === */
+header {
+    background: var(--primary-blue);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.logo {
+    font-size: 2em;
+    font-weight: 700;
+}
+
+/* === Sections & Layout === */
+main section {
+    background: white;
+    padding: 30px;
+    margin-top: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+}
+h2 {
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--bg-light);
+    padding-bottom: 10px;
+}
+
+/* === Forms and Inputs === */
+#searchForm {
+    display: flex;
+    gap: 15px;
+    align-items: flex-end;
+}
+@media (max-width: 600px) {
+    #searchForm {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+.form-group {
+    flex-grow: 1;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color var(--smooth-transition);
+}
+input:focus {
+    border-color: var(--accent-cyan);
+    outline: none;
+}
+
+/* === Buttons === */
+.btn-primary, .btn-secondary {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--smooth-transition);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.btn-primary {
+    background-color: var(--primary-blue);
+    color: white;
+}
+.btn-primary:hover {
+    background-color: #005a8f;
+    box-shadow: 0 4px 10px rgba(0, 119, 182, 0.4);
+}
+.btn-secondary {
+    background-color: #f0f0f0;
+    color: var(--text-dark);
+    margin-left: 10px;
+}
+.btn-secondary:hover {
+    background-color: #e0e0e0;
+}
+
+/* === Flight Results === */
+.flight-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.flight-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background: var(--bg-light);
+    transition: box-shadow var(--smooth-transition);
+}
+.flight-card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.flight-details h4 {
+    margin-bottom: 5px;
+    color: var(--text-dark);
+    border-bottom: none;
+    font-size: 1.1em;
+}
+.flight-details p {
+    font-size: 0.9em;
+    color: var(--text-light);
+}
+.flight-price {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #008000; /* Darker Green */
+    margin-right: 20px;
+}
+
+/* === Booking Section Specifics === */
+.booking-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+.booking-form .form-group {
+    margin-bottom: 15px;
+}
+.final-price {
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+.final-price span {
+    color: #008000;
+}
+.message-info {
+    font-style: italic;
+    color: var(--text-light);
+    margin-top: 10px;
+}
+.success-message {
+    color: #008000;
+    font-weight: 700;
+    padding: 10px;
+    border: 1px solid #008000;
+    background: #e6ffe6;
+    border-radius: 4px;
+}
+.error-message {
+    color: #cc0000;
+    font-weight: 700;
+    padding: 10px;
+    border: 1px solid #cc0000;
+    background: #ffe6e6;
+    border-radius: 4px;
+}
+
+/* === Footer === */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+    color: var(--text-light);
+    font-size: 0.8em;
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlightFlex - Online Booking</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1 class="logo">✈️ FlightFlex</h1>
+            <p>Simplified Global Travel</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="search-section">
+            <h2>Find Your Flight</h2>
+            <form id="searchForm">
+                <div class="form-group">
+                    <label for="origin">Origin City (e.g., NYC)</label>
+                    <input type="text" id="origin" placeholder="Departure City Code" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="destination">Destination City (e.g., LON)</label>
+                    <input type="text" id="destination" placeholder="Arrival City Code" required>
+                </div>
+
+                <button type="submit" class="btn-primary">Search Flights</button>
+            </form>
+        </section>
+
+        <section class="results-section">
+            <h3>Available Flights</h3>
+            <p id="resultsMessage" class="message-info">Enter city codes and click Search to see results.</p>
+            <div id="flightResults" class="flight-list"></div>
+        </section>
+
+        <section class="booking-section hidden">
+            <h3>Book Flight <span id="selectedFlightDetails"></span></h3>
+            <form id="bookingForm" class="booking-form">
+                <input type="hidden" id="bookingFlightNumber">
+
+                <div class="form-group">
+                    <label for="pName">Passenger Name</label>
+                    <input type="text" id="pName" required placeholder="Full Name">
+                </div>
+
+                <div class="form-group">
+                    <label for="pEmail">Email Address</label>
+                    <input type="email" id="pEmail" required placeholder="Email for ticket delivery">
+                </div>
+
+                <div class="form-group">
+                    <label for="pSeats">Number of Seats</label>
+                    <input type="number" id="pSeats" min="1" value="1" required>
+                </div>
+
+                <p class="final-price">Total Price: <span id="totalPriceDisplay">$0.00</span></p>
+
+                <button type="submit" class="btn-primary">Confirm Booking</button>
+                <button type="button" class="btn-secondary" onclick="window.location.reload()">Cancel</button>
+
+                <p id="bookingMessage" class="message-info"></p>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2025 FlightFlex Prototype | Data saved using Firebase Firestore.</p>
+    </footer>
+
+    <!-- Load script.js -->
+    <script type="module" src="script.js"></script>
+
+    <!-- Correct Firebase config -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCBtZEpS_PSTWuPt701m5j67sdTRbRoPhs",
+            authDomain: "flightflex-92bc2.firebaseapp.com",
+            projectId: "flightflex-92bc2",
+            storageBucket: "flightflex-92bc2.appspot.com",
+            messagingSenderId: "274820145406",
+            appId: "1:274820145406:web:051ac35ccf76ddac7c05af",
+            measurementId: "G-Y7K1GB3D95"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        window.db = getFirestore(app);  // Make DB available globally
+    </script>
+
+</body>
+</html>
